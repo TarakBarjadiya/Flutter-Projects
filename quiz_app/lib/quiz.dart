@@ -25,7 +25,7 @@ class _QuizState extends State<Quiz> {
     if (activeScreen == 'questions-screen') {
       screenWidget = const QuestionsScreen();
     }
-    
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -33,8 +33,8 @@ class _QuizState extends State<Quiz> {
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Color.fromARGB(255, 138, 24, 184),
-                Color.fromARGB(255, 115, 13, 146),
+                Color.fromARGB(255, 35, 24, 184),
+                Color.fromARGB(255, 49, 81, 170),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
