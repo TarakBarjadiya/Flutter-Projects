@@ -39,7 +39,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              currentQuestion.text,
+              '${currentQuestionIndex + 1}.  ${currentQuestion.text}',
               style: GoogleFonts.lato(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
