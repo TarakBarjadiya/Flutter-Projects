@@ -13,7 +13,7 @@ class _ExpensesState extends State<Expenses> {
     return const Scaffold(
       body: Column(
         children: [
-          Text("Placeholder..."),
+          Text("Placeholder"),
           Text("Expenses List..."),
         ],
       ),
