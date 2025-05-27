@@ -1,5 +1,6 @@
 import 'package:expense_tracker/views/expenses_view.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
 
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 93, 156, 228),
@@ -7,10 +8,16 @@ var kColorScheme = ColorScheme.fromSeed(
 
 var kDarkColorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
-  seedColor: const Color.fromARGB(255, 26, 18, 97),
+  seedColor: const Color.fromARGB(255, 93, 156, 228),
 );
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  // ]).then((fn) {
+  //   runApp(const ExpenseApp());
+  // });
   runApp(const ExpenseApp());
 }
 
@@ -23,6 +30,10 @@ class ExpenseApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       darkTheme: ThemeData.dark().copyWith(
         colorScheme: kDarkColorScheme,
+        appBarTheme: const AppBarTheme().copyWith(
+          backgroundColor: kDarkColorScheme.primaryContainer,
+          foregroundColor: kDarkColorScheme.onPrimaryContainer,
+        ),
         cardTheme: const CardThemeData().copyWith(
           color: kDarkColorScheme.primaryContainer,
           margin: const EdgeInsets.symmetric(
