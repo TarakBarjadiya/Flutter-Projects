@@ -139,6 +139,9 @@ class _NewExpenseState extends State<NewExpense> {
           Row(
             children: [
               DropdownButton(
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium,
                 value: _selectedCategory,
                 items: Category.values
                     .map(
