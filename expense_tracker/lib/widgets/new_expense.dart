@@ -97,6 +97,9 @@ class _NewExpenseState extends State<NewExpense> {
             decoration: const InputDecoration(
               label: Text('Expense Title'),
             ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium!.copyWith(fontSize: 16),
           ),
           Row(
             children: [
@@ -108,6 +111,10 @@ class _NewExpenseState extends State<NewExpense> {
                     prefixText: '\$ ',
                     label: Text('Amount'),
                   ),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium!
+                      .copyWith(fontSize: 16),
                 ),
               ),
               const SizedBox(width: 16),
