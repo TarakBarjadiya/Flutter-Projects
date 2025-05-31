@@ -9,7 +9,12 @@ class MealDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(meal.title)),
+      appBar: AppBar(
+        title: Text(meal.title),
+        backgroundColor: Theme.of(
+          context,
+        ).appBarTheme.backgroundColor,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -34,7 +39,9 @@ class MealDetailsScreen extends StatelessWidget {
             for (final ingredient in meal.ingredients)
               Text(
                 ingredient,
-                style: Theme.of(context).textTheme.bodyMedium!
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
                     .copyWith(
                       color: Theme.of(
                         context,
