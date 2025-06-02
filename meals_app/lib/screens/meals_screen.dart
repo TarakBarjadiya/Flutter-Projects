@@ -17,9 +17,7 @@ class MealsScreen extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (ctx) => MealDetailsScreen(
-          meal: meal,
-        ),
+        builder: (ctx) => MealDetailsScreen(meal: meal),
       ),
     );
   }
@@ -44,9 +42,7 @@ class MealsScreen extends StatelessWidget {
           children: [
             Text(
               "Uh Oh... Nothing Here...",
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineLarge!
+              style: Theme.of(context).textTheme.headlineLarge!
                   .copyWith(
                     color: Theme.of(
                       context,

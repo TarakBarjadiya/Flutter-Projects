@@ -22,9 +22,7 @@ class MealDetailsScreen extends ConsumerWidget {
               final wasAdded = ref
                   .read(favoritesMealsProvider.notifier)
                   .toggleMealFavoriteStatus(meal);
-              ScaffoldMessenger.of(
-                context,
-              ).clearSnackBars();
+              ScaffoldMessenger.of(context).clearSnackBars();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
@@ -53,9 +51,7 @@ class MealDetailsScreen extends ConsumerWidget {
               'Ingredients',
               style: Theme.of(context).textTheme.titleLarge!
                   .copyWith(
-                    color: Theme.of(
-                      context,
-                    ).colorScheme.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.bold,
                   ),
             ),
@@ -63,9 +59,7 @@ class MealDetailsScreen extends ConsumerWidget {
             for (final ingredient in meal.ingredients)
               Text(
                 ingredient,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
+                style: Theme.of(context).textTheme.bodyMedium!
                     .copyWith(
                       color: Theme.of(
                         context,
@@ -77,9 +71,7 @@ class MealDetailsScreen extends ConsumerWidget {
               'Steps',
               style: Theme.of(context).textTheme.titleLarge!
                   .copyWith(
-                    color: Theme.of(
-                      context,
-                    ).colorScheme.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.bold,
                   ),
             ),
@@ -92,9 +84,7 @@ class MealDetailsScreen extends ConsumerWidget {
                 ),
                 child: Text(
                   step,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
+                  style: Theme.of(context).textTheme.bodyMedium!
                       .copyWith(
                         color: Theme.of(
                           context,

@@ -15,10 +15,7 @@ class CategoriesScreen extends StatelessWidget {
 
   final List<Meal> availableMeals;
 
-  void _selectCategory(
-    BuildContext context,
-    Category category,
-  ) {
+  void _selectCategory(BuildContext context, Category category) {
     final filteredCategory = availableMeals
         .where(
           (selectedMeal) =>

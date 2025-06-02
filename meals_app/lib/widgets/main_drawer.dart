@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({
-    super.key,
-    required this.onSelectScreen,
-  });
+  const MainDrawer({super.key, required this.onSelectScreen});
 
   final void Function(String identifier) onSelectScreen;
 
@@ -17,13 +14,10 @@ class MainDrawer extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
+                  Theme.of(context).colorScheme.primaryContainer,
                   Theme.of(
                     context,
-                  ).colorScheme.primaryContainer,
-                  Theme.of(context)
-                      .colorScheme
-                      .primaryContainer
-                      .withAlpha(85),
+                  ).colorScheme.primaryContainer.withAlpha(85),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -42,9 +36,7 @@ class MainDrawer extends StatelessWidget {
                 const SizedBox(width: 18),
                 Text(
                   "Let me cook 🔥",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
+                  style: Theme.of(context).textTheme.titleLarge!
                       .copyWith(
                         color: Theme.of(
                           context,
@@ -60,9 +52,7 @@ class MainDrawer extends StatelessWidget {
             },
             leading: Icon(
               Icons.restaurant,
-              color: Theme.of(
-                context,
-              ).colorScheme.onSurface,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
             title: Text(
               "Meals",
@@ -81,9 +71,7 @@ class MainDrawer extends StatelessWidget {
             },
             leading: Icon(
               Icons.settings,
-              color: Theme.of(
-                context,
-              ).colorScheme.onSurface,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
             title: Text(
               "Filter Meals",

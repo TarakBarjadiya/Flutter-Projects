@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-enum Filter { glutenFree, lactoseFree, vegetarian, vegan }
+import 'package:meals_app/providers/filters_provider.dart';
 
-class FiltersScreen extends StatefulWidget {
-  const FiltersScreen({
-    super.key,
-    required this.currentFilters,
-  });
-
-  final Map<Filter, bool> currentFilters;
+class FiltersScreen extends ConsumerStatefulWidget {
+  const FiltersScreen({super.key});
 
   @override
-  State<FiltersScreen> createState() =>
+  ConsumerState<FiltersScreen> createState() =>
       _FiltersScreenState();
 }
 
-class _FiltersScreenState extends State<FiltersScreen> {
+class _FiltersScreenState extends ConsumerState<FiltersScreen> {
   var _glutenFreeFilterSet = false;
   var _lactoseFreeFilterSet = false;
   var _vegetarianFreeFilterSet = false;
@@ -24,14 +20,11 @@ class _FiltersScreenState extends State<FiltersScreen> {
   @override
   void initState() {
     super.initState();
-    _glutenFreeFilterSet =
-        widget.currentFilters[Filter.glutenFree]!;
-    _lactoseFreeFilterSet =
-        widget.currentFilters[Filter.lactoseFree]!;
-    _vegetarianFreeFilterSet =
-        widget.currentFilters[Filter.vegetarian]!;
-    _veganFreeFilterSet =
-        widget.currentFilters[Filter.vegan]!;
+    final activeFilters = ref.read(filtersProvider);
+    _glutenFreeFilterSet = activeFilters[Filter.glutenFree]!;
+    _lactoseFreeFilterSet = activeFilters[Filter.lactoseFree]!;
+    _vegetarianFreeFilterSet = activeFilters[Filter.vegetarian]!;
+    _veganFreeFilterSet = activeFilters[Filter.vegan]!;
   }
 
   @override
@@ -39,10 +32,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text("Your Filters")),
       body: PopScope(
-        canPop: false,
         onPopInvokedWithResult: (didPop, result) {
-          if (didPop) return;
-          Navigator.of(context).pop({
+          ref.read(filtersProvider.notifier).setFilters({
             Filter.glutenFree: _glutenFreeFilterSet,
             Filter.lactoseFree: _lactoseFreeFilterSet,
             Filter.vegetarian: _vegetarianFreeFilterSet,
@@ -60,9 +51,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               },
               title: Text(
                 "Gluten-Free",
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
+                style: Theme.of(context).textTheme.titleLarge!
                     .copyWith(
                       color: Theme.of(
                         context,
@@ -71,9 +60,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               ),
               subtitle: Text(
                 "Only include gluten-free meals.",
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium!
+                style: Theme.of(context).textTheme.labelMedium!
                     .copyWith(
                       color: Theme.of(
                         context,
@@ -93,9 +80,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               },
               title: Text(
                 "Lactose-Free",
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
+                style: Theme.of(context).textTheme.titleLarge!
                     .copyWith(
                       color: Theme.of(
                         context,
@@ -104,9 +89,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               ),
               subtitle: Text(
                 "Only include lactose-free meals.",
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium!
+                style: Theme.of(context).textTheme.labelMedium!
                     .copyWith(
                       color: Theme.of(
                         context,
@@ -126,9 +109,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               },
               title: Text(
                 "Vegetarian",
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
+                style: Theme.of(context).textTheme.titleLarge!
                     .copyWith(
                       color: Theme.of(
                         context,
@@ -137,9 +118,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               ),
               subtitle: Text(
                 "Only include vegetarian meals.",
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium!
+                style: Theme.of(context).textTheme.labelMedium!
                     .copyWith(
                       color: Theme.of(
                         context,
@@ -159,9 +138,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               },
               title: Text(
                 "Vegan",
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
+                style: Theme.of(context).textTheme.titleLarge!
                     .copyWith(
                       color: Theme.of(
                         context,
@@ -170,9 +147,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               ),
               subtitle: Text(
                 "Only include vegan meals.",
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium!
+                style: Theme.of(context).textTheme.labelMedium!
                     .copyWith(
                       color: Theme.of(
                         context,
