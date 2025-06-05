@@ -1,4 +1,6 @@
+import 'package:favorite_places/screens/favorite_places_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,12 +24,14 @@ final theme = ThemeData().copyWith(
       fontWeight: FontWeight.bold,
     ),
   ),
+  appBarTheme: AppBarTheme(
+    backgroundColor: const Color.fromARGB(255, 29, 25, 34),
+    toolbarHeight: 70,
+  ),
 );
 
 void main() {
-  runApp(
-      const MyApp(),
-  );
+  runApp(ProviderScope(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -39,7 +43,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Great Places',
       theme: theme,
-      home: Scaffold(),
+      home: FavoritePlacesScreen(),
     );
   }
 }
