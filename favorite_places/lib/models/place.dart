@@ -4,7 +4,7 @@ import 'package:uuid/uuid.dart';
 final uuid = const Uuid();
 
 class PlaceLocation {
-  PlaceLocation({
+  const PlaceLocation({
     required this.latitude,
     required this.longitude,
     required this.address,
