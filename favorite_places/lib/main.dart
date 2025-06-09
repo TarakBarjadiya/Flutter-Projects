@@ -18,14 +18,14 @@ final theme = ThemeData().copyWith(
     titleMedium: GoogleFonts.ubuntuCondensed(fontWeight: FontWeight.bold),
     titleLarge: GoogleFonts.ubuntuCondensed(fontWeight: FontWeight.bold),
   ),
-  appBarTheme: AppBarTheme(
-    backgroundColor: const Color.fromARGB(255, 29, 25, 34),
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Color.fromARGB(255, 29, 25, 34),
     toolbarHeight: 70,
   ),
 );
 
 void main() {
-  runApp(ProviderScope(child: const MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Great Places',
       theme: theme,
-      home: FavoritePlacesScreen(),
+      home: const FavoritePlacesScreen(),
     );
   }
 }
