@@ -26,19 +26,22 @@ class PlacesList extends StatelessWidget {
       itemCount: places.length,
       itemBuilder: (context, index) {
         return ListTile(
+          leading: CircleAvatar(
+            radius: 26,
+            backgroundImage: FileImage(places[index].image),
+          ),
           title: Text(
             places[index].name,
             style: TextStyle(
               color: Theme.of(context).colorScheme.onSurface,
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
           ),
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (cntx) =>
-                    PlaceDetailsScreen(place: places[index]),
+                builder: (cntx) => PlaceDetailsScreen(place: places[index]),
               ),
             );
           },
