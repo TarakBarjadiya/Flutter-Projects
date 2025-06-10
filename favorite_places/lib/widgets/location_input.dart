@@ -4,6 +4,7 @@ import 'package:location/location.dart';
 
 import 'package:geocoding/geocoding.dart' as geo;
 import 'package:flutter_map/flutter_map.dart';
+import 'package:favorite_places/screens/map_screen.dart';
 
 import 'package:favorite_places/models/place.dart';
 
@@ -86,6 +87,24 @@ class _LocationInputState extends State<LocationInput> {
     _savePlace(lat, lng);
   }
 
+  void _selectOnMap() async {
+    final pickedLocation = await Navigator.of(context).push<LatLng>(
+      MaterialPageRoute(builder: (ctx) => const MapScreen(isSelecting: true)),
+    );
+
+    if (pickedLocation == null) {
+      return;
+    }
+
+    _savePlace(pickedLocation.latitude, pickedLocation.longitude);
+  }
+
+  @override
+  void dispose() {
+    _mapController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget previewContent = Text(
@@ -158,7 +177,7 @@ class _LocationInputState extends State<LocationInput> {
               label: const Text("Get your location"),
             ),
             TextButton.icon(
-              onPressed: () {},
+              onPressed: _selectOnMap,
               icon: const Icon(Icons.map),
               label: const Text("Map"),
             ),

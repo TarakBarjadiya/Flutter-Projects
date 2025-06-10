@@ -36,7 +36,7 @@ class _ImageInputState extends State<ImageInput> {
   @override
   Widget build(BuildContext context) {
     Widget content = TextButton.icon(
-      icon: Icon(Icons.camera_alt),
+      icon: const Icon(Icons.camera_alt),
       label: const Text("Take a picture"),
       onPressed: _takePicture,
     );
